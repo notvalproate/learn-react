@@ -6,22 +6,22 @@ export default function Textform(props) {
 
     const toUpper = () => {
         setText(text.toUpperCase());
-    }
+    };
 
     const toLower = () => {
         setText(text.toLowerCase());
-    }
+    };
 
     const handleChange = (event) => {
         setText(event.target.value);
-    }
+    };
 
     return (
         <>
             <div className="container">
                 <div className="mb-3">
                     <label htmlFor="exampleFormControlTextarea1" className="form-label"><h3 className="my-3">{props.heading}</h3></label>
-                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Enter Text Here" value={text} onChange={handleChange}/>
+                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="7" placeholder="Enter Text Here" value={text} onChange={handleChange}/>
                 </div>
                 <button className="btn btn-primary mx-1 rounded-5" onClick={toUpper}>Convert to Uppercase</button>
                 <button className="btn btn-primary mx-1 rounded-5" onClick={toLower}>Convert to Lowercase</button>

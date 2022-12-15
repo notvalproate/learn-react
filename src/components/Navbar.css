@@ -1,0 +1,71 @@
+.Nav {
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #040404;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.NavContainer {
+    width: 90%; 
+    pad: 0 1.4rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.NavItemContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#Title {
+    color: rgb(230, 255, 255);
+    font-size: 50px;
+    letter-spacing: 4px;
+    border-bottom: solid #0091ff;
+    transition: 150ms;
+}
+
+#Title:hover {
+    border-color: aliceblue;
+}
+
+#TitleTag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#LogoImg {
+    width: 80px;
+    margin: 0 15px;
+    animation: rotation 10s infinite linear;
+}
+
+.Item {
+    color: rgb(230, 255, 255);
+    letter-spacing: 2px;
+    border-bottom: solid #0091ff;
+    transition: 150ms;
+    margin: 0 10px 0 10px;
+}
+
+.Item:hover {
+    border-color: aliceblue;
+}
+
+a {
+    text-decoration: none;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
