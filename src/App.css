@@ -1,4 +1,13 @@
-body {
+.containDark {
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
   background-color: #171717;
   color: aliceblue;
+}
+
+.containLight {
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
 }
