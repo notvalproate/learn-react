@@ -13,7 +13,7 @@ export default function Navbar(props) {
             <div className="NavContainer">
                 <div className="Logo">
                     <Link id="TitleTag" to="/">
-                        <img id="LogoImg" src="../logo512.png" alt="Logo" />
+                        <img id="LogoImg" src="./logo512.png" alt="Logo" />
                         <h1 className={`Title${props.mode}`}>{props.title}</h1>
                     </Link>
                     <input id="darkmode" type="checkbox" onClick={toggle}/>
