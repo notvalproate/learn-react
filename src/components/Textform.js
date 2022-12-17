@@ -6,10 +6,12 @@ export default function Textform(props) {
 
     const toUpper = () => {
         setText(text.toUpperCase());
+        props.showAlert("Changed all characters to Upper Case!", "success");
     };
 
     const toLower = () => {
         setText(text.toLowerCase());
+        props.showAlert("Changed all characters to Lower Case!", "success");
     };
 
     const toInvert = () => {
@@ -23,6 +25,7 @@ export default function Textform(props) {
             }
         }
         setText(finalString);
+        props.showAlert("Inverted All Casing!", "success");
     };
 
     const toSentence = () => {
@@ -47,14 +50,17 @@ export default function Textform(props) {
             }
         }
         setText(finalString);
+        props.showAlert("Converted to Sentence Case!", "success");
     };
 
     const toClear = () => {
         setText('');
+        props.showAlert("Cleared!", "success");
     };
 
     const toCopy = () => {
         navigator.clipboard.writeText(text);
+        props.showAlert("Copied to Clipboard!", "success");
     };
 
     const handleChange = (event) => {
