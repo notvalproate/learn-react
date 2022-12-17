@@ -67,25 +67,29 @@ export default function Textform(props) {
         setText(event.target.value);
     };
 
+    const sendError = () => {
+        props.showAlert("Enter A String First!", "danger");
+    }
+
     return (
         <>  
             <div className="container">
                 <div className="mb-3">
                     <label htmlFor="exampleFormControlTextarea1" className="form-label"><h2 className="my-3 text-4xl font-bold">{props.heading}</h2></label>
-                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="7" placeholder="Enter Text Here" value={text} onChange={handleChange}/>
+                    <textarea className={`form-control bg-${props.mode.toLowerCase()}`} style={{caretColor: props.mode === "Dark" ? "white" : "black", color: props.mode === "Dark" ? "white" : "black"}} id="exampleFormControlTextarea1" rows="7" placeholder="Enter Text Here" value={text} onChange={handleChange}/>
                 </div>
-                <button className="btn btn-primary mx-1 rounded-5" onClick={toUpper}>Convert to Uppercase</button>
-                <button className="btn btn-primary mx-1 rounded-5" onClick={toLower}>Convert to Lowercase</button>
-                <button className="btn btn-primary mx-1 rounded-5" onClick={toInvert}>Invert Case</button>
-                <button className="btn btn-primary mx-1 rounded-5" onClick={toSentence}>Sentence Case</button>
-                <button className="btn btn-primary mx-1 rounded-5" onClick={toClear}>Clear Text</button>
-                <button className="btn btn-primary mx-1 rounded-5" onClick={toCopy}>Copy Text</button>
-            </div>
+                <button className="btn btn-primary mx-1 my-1 rounded-5" onClick={text.trim() === "" ? sendError : toUpper}>Convert to Uppercase</button>
+                <button className="btn btn-primary mx-1 my-1 rounded-5" onClick={text.trim() === "" ? sendError : toLower}>Convert to Lowercase</button>
+                <button className="btn btn-primary mx-1 my-1 rounded-5" onClick={text.trim() === "" ? sendError : toInvert}>Invert Case</button>
+                <button className="btn btn-primary mx-1 my-1 rounded-5" onClick={text.trim() === "" ? sendError : toSentence}>Sentence Case</button>
+                <button className="btn btn-primary mx-1 my-1 rounded-5" onClick={text.trim() === "" ? sendError : toClear}>Clear Text</button>
+                <button className="btn btn-primary mx-1 my-1 rounded-5" onClick={text.trim() === "" ? sendError : toCopy}>Copy Text</button>
+            </div>  
             <div className="container">
-                <h1 className="my-3 text-4xl font-bold">Text Summary:</h1>
-                <h3 className="my-2 text-2xl">Word Count : {text.split(" ").filter(word => word !== '' && word !== '.').length}</h3>
+                <h1 className="my-3 text-4xl font-bold">Text Summary:</h1>  
+                <h3 className="my-2 text-2xl">Word Count : {text.split(/\s+/).filter(word => word !== '' && word !== '.').length}</h3>
                 <h3 className="my-2 text-2xl">Character Count: {text.length}</h3>
-                <h3 className="my-2 text-2xl">Sentence Count: {text.split(".").filter(word => word.trim() !== '').length}</h3>
+                <h3 className="my-2 text-2xl">Sentence Count: {text.split(/[.\n]/).filter(word => word.trim() !== '').length}</h3>
                 <h3 className="my-2 text-2xl">Estimated Reading Time: { 0.005 * text.split(" ").filter(word => word !== '').length} Minutes</h3>
             </div>
         </>
